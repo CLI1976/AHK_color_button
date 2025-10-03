@@ -1,7 +1,7 @@
 # ColorButton Hover 邊框功能 (修改版)
 
 > 基於 [nperovic/ColorButton.ahk](https://github.com/nperovic/ColorButton.ahk) 修改  
-> 新增 Hover 時顯示邊框的功能
+> 新增 滑鼠 Hover 時顯示邊框的功能
 
 ## 致謝
 
