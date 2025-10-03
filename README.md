@@ -54,8 +54,9 @@ Copyright (c) 2024 Nikola Perovic
 ```ahk
 btn.SetColor(bgColor, txColor?, showBorder, borderColor?, roundedCorner?)
 參數值效果n > 0Hover 或 Focus 時顯示 n 像素粗的邊框1Hover 或 Focus 時顯示 1px 邊框（預設）0完全無邊框-1永遠顯示 1px 邊框-n < 0永遠顯示 n 像素粗的邊框（絕對值越大越粗）
-使用範例
-基本用法
+
+##使用範例
+##基本用法
 ahk#Requires AutoHotkey v2.0
 #Include ColorButton_HoverBorder.ahk
 
@@ -70,7 +71,7 @@ MyGui.Show()
 
 
 
-多種樣式展示
+##多種樣式展示
 ahk#Requires AutoHotkey v2.0
 #Include ColorButton_HoverBorder.ahk
 
@@ -102,8 +103,8 @@ MyGui.Show("w220")
 
 
 
-屬性設定方式
-除了使用 SetColor() 方法，也可以透過屬性個別設定：
+##屬性設定方式
+###除了使用 SetColor() 方法，也可以透過屬性個別設定：
 ahkbtn := MyGui.Add("Button", "w150", "我的按鈕")
 
 ; 方法 1: 使用 SetColor
@@ -118,8 +119,7 @@ btn.RoundedCorner := 6
 
 
 
-技術說明
-
+##技術說明
 事件機制：使用 Windows API TrackMouseEvent 追蹤滑鼠進入/離開
 全局 OnMessage：避免與原始 ColorButton 的 SubClass 機制衝突
 按需重繪：僅在 hover 狀態改變時觸發重繪，不會持續消耗資源
