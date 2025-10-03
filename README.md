@@ -1,8 +1,43 @@
-# ColorButton Hover 邊框功能說明
+# ColorButton Hover 邊框功能 (修改版)
 
-## 功能特色
+> 基於 [nperovic/ColorButton.ahk](https://github.com/nperovic/ColorButton.ahk) 修改  
+> 新增 Hover 時顯示邊框的功能
 
-這個修改版的 ColorButton 支援滑鼠 Hover 時顯示邊框，提供更好的互動體驗。
+## 致謝
+
+本項目基於 **Nikola Perovic** 的 [ColorButton.ahk](https://github.com/nperovic/ColorButton.ahk) 進行修改。  
+原項目提供了優秀的按鈕自訂顏色功能,在此基礎上我們增加了滑鼠 Hover 邊框效果。
+
+感謝原作者的開源貢獻! 🙏
+
+## 與原版的差異
+
+| 功能 | 原版 | 修改版 |
+|------|------|--------|
+| 背景/文字/邊框顏色 | ✅ | ✅ |
+| Focus 時顯示邊框 | ✅ | ✅ |
+| **Hover 時顯示邊框** | ❌ | ✅ |
+| 圓角設定 | ✅ | ✅ |
+
+## 修改內容
+
+- 新增滑鼠 Hover 事件追蹤 (`TrackMouseEvent` API)
+- 使用全局 `OnMessage` 處理滑鼠進入/離開事件
+- 修改邊框繪製邏輯,支援 Hover 狀態
+- 保持與原版的完整兼容性
+
+## 授權
+
+本修改版遵循原項目的 MIT 授權條款。
+
+---
+
+# 功能特色
+
+這個修改版的 ColorButton 支援滑鼠 Hover 時顯示邊框,提供更好的互動體驗。
+
+### 主要特點
+...（後續內容）
 
 ### 主要特點
 - **Hover 即時反饋**：滑鼠移到按鈕上時自動顯示邊框
