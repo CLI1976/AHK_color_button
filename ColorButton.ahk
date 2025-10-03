@@ -327,3 +327,34 @@ class NMCUSTOMDRAWINFO extends Buffer {
         this.PropDesc("lItemlParam", x64 ? 72 : 44, "iptr", ptr?)
     }
 }
+
+if (A_ScriptName = "ColorButton.ahk") {
+    ; Example - ColorButton
+    MyGui := Gui()
+MyGui.SetFont("s10", "Microsoft JhengHei")
+MyGui.BackColor := 0x202020
+
+; 深色主題
+DllCall("Dwmapi\DwmSetWindowAttribute", "Ptr", MyGui.hwnd, "UInt", 20, "Ptr*", 1, "UInt", 4)
+
+; 測試 1: Hover 時顯示 2px 紅色邊框
+btn1 := MyGui.Add("Button", "x20 y20 w150 h40", "Hover 顯示 2px")
+btn1.SetColor(0x0078D4, 0xFFFFFF, 2, 0xFF0000)
+
+; 測試 2: Hover 時顯示 5px 黃色邊框
+btn2 := MyGui.Add("Button", "x20 y70 w150 h40", "Hover 顯示 5px")
+btn2.SetColor(0x0078D4, 0xFFFFFF, 5, 0xFFFF00)
+
+; 測試 3: 永遠顯示 2px 綠色邊框
+btn3 := MyGui.Add("Button", "x20 y120 w150 h40", "永遠顯示 2px")
+btn3.SetColor(0x0078D4, 0xFFFFFF, -2, 0x00FF00)
+
+; 測試 4: 無邊框
+btn4 := MyGui.Add("Button", "x20 y170 w150 h40", "無邊框")
+btn4.SetColor(0x0078D4, 0xFFFFFF, 0)
+
+MyGui.Add("Text", "x20 y220 cWhite", "試試把滑鼠移到按鈕上!")
+
+MyGui.Show("w190")
+    }
+    
