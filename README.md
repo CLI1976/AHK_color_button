@@ -51,13 +51,16 @@ Copyright (c) 2024 Nikola Perovic
 - **多種邊框模式**：支援 Hover 顯示、永久顯示或完全隱藏
 
 ## ShowBorder 參數說明
+
 ```ahk
 btn.SetColor(bgColor, txColor?, showBorder, borderColor?, roundedCorner?)
 參數值效果n > 0Hover 或 Focus 時顯示 n 像素粗的邊框1Hover 或 Focus 時顯示 1px 邊框（預設）0完全無邊框-1永遠顯示 1px 邊框-n < 0永遠顯示 n 像素粗的邊框（絕對值越大越粗）
+```
 
 ##使用範例
 ##基本用法
-ahk#Requires AutoHotkey v2.0
+```ahk
+#Requires AutoHotkey v2.0
 #Include ColorButton_HoverBorder.ahk
 
 MyGui := Gui()
@@ -99,13 +102,14 @@ btn5 := MyGui.Add("Button", "x20 y220 w180 h40", "無邊框")
 btn5.SetColor(0x0078D4, 0xFFFFFF, 0)
 
 MyGui.Show("w220")
-
+```
 
 
 
 ##屬性設定方式
 ###除了使用 SetColor() 方法，也可以透過屬性個別設定：
-ahkbtn := MyGui.Add("Button", "w150", "我的按鈕")
+```ahk
+btn := MyGui.Add("Button", "w150", "我的按鈕")
 
 ; 方法 1: 使用 SetColor
 btn.SetColor(0x0078D4, 0xFFFFFF, 3, 0xFF0000, 6)
@@ -116,7 +120,7 @@ btn.TextColor := 0xFFFFFF
 btn.BorderColor := 0xFF0000
 btn.ShowBorder := 3
 btn.RoundedCorner := 6
-
+```
 
 
 ##技術說明
