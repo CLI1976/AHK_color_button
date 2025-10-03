@@ -50,66 +50,107 @@ Copyright (c) 2024 Nikola Perovic
 - **資源友善**：僅在狀態改變時重繪，無持續輪詢
 - **多種邊框模式**：支援 Hover 顯示、永久顯示或完全隱藏
 
-## ShowBorder 參數說明
+## SetColor 方法完整說明 
 
 ```ahk
 btn.SetColor(bgColor, txColor?, showBorder, borderColor?, roundedCorner?)
 ```
-參數值   效果
-n > 0   Hover 或 Focus 時顯示 n 像素粗的邊框
-1 Hover 或 Focus 時顯示 1px 邊框（預設）
-0  完全無邊框
--1永遠顯示 1px 邊框
--n < 0永遠顯示 n 像素粗的邊框（絕對值越大越粗）
+1. ### bgColor 按鈕背景顏色
+2. ### txColor?(可選) 按鈕文字顏色 (RGB)
+3. ### show Border 參數說明
+| 參數值 | 效果 | 
+|------|------|
+|n > 0 | Hover 或 Focus 時顯示 n 像素粗的邊框 |
+| 1  | Hover 或 Focus 時顯示 1px 邊框（預設） |
+| 0| 完全無邊框 |
+|-1 | 永遠顯示 1px 邊框| 
+|-n < 0   | 永遠顯示 n 像素粗的邊框（絕對值越大越粗） |
+4. ### borderColor?(可選) 邊框顏色 (RGB)  (預設 = 0xFFFFFF, 白色邊框)
+4. ### roundedColor?(可選) 圓角像素值 (預設 = 0xFFFFFF, 白色邊框)
+```
+btn.SetColor(0x0078D4, , , , 9)     // 9px 圓角
+btn.SetColor(0x0078D4, , , , 0)     // 方形按鈕
+btn.SetColor(0x0078D4)              // 省略:
+                                    // Win11 自動 9px 圓角
+                                    // Win10 自動方形
+```
+
+
+
+
+
 
 
 ##使用範例
-##基本用法
+##範例 1: 最簡單用法
 ```ahk
-#Requires AutoHotkey v2.0
-#Include ColorButton_HoverBorder.ahk
-
-MyGui := Gui()
-MyGui.BackColor := 0x202020
-
-; Hover 時顯示 2px 紅色邊框
-btn := MyGui.Add("Button", "x20 y20 w150", "Hover 我看看")
-btn.SetColor(0x0078D4, 0xFFFFFF, 2, 0xFF0000)
-
-MyGui.Show()
-
-
-
-##多種樣式展示
-ahk#Requires AutoHotkey v2.0
-#Include ColorButton_HoverBorder.ahk
-
-MyGui := Gui()
-MyGui.BackColor := 0x202020
-
-; Hover 時 1px 邊框
-btn1 := MyGui.Add("Button", "x20 y20 w180 h40", "Hover 顯示 1px")
-btn1.SetColor(0x0078D4, 0xFFFFFF, 1, 0xFF0000)
-
-; Hover 時 5px 粗邊框
-btn2 := MyGui.Add("Button", "x20 y70 w180 h40", "Hover 顯示 5px")
-btn2.SetColor(0x0078D4, 0xFFFFFF, 5, 0xFFFF00)
-
-; 永遠 2px 邊框
-btn3 := MyGui.Add("Button", "x20 y120 w180 h40", "永遠顯示 2px")
-btn3.SetColor(0x0078D4, 0xFFFFFF, -2, 0x00FF00)
-
-; 永遠 5px 粗邊框
-btn4 := MyGui.Add("Button", "x20 y170 w180 h40", "永遠顯示 5px")
-btn4.SetColor(0x0078D4, 0xFFFFFF, -5, 0xFF00FF)
-
-; 完全無邊框
-btn5 := MyGui.Add("Button", "x20 y220 w180 h40", "無邊框")
-btn5.SetColor(0x0078D4, 0xFFFFFF, 0)
-
-MyGui.Show("w220")
+btn := MyGui.Add("Button", "w150", "按鈕")
+btn.SetColor(0x0078D4)  // 只設背景色,其他都自動
+```
+##範例 2: 設定文字顏色
+```
+btn.SetColor(
+    0x0078D4,    // 藍色背景
+    0xFFFFFF     // 白色文字
+)
 ```
 
+##範例 3: Hover 時顯示邊框
+```
+btn.SetColor(
+    0x0078D4,    // 藍色背景
+    0xFFFFFF,    // 白色文字
+    2,           // Hover 時 2px 邊框
+    0xFF0000     // 紅色邊框
+)
+```
+##範例 4: 永遠顯示粗邊框
+```
+btn.SetColor(
+    0x0078D4,    // 藍色背景
+    0xFFFFFF,    // 白色文字
+    -5,          // 永遠 5px 邊框
+    0x00FF00     // 綠色邊框
+)
+```
+##範例 5: 完整設定
+```
+btn.SetColor(
+    0x0078D4,    // 背景: 藍色
+    0xFFFFFF,    // 文字: 白色
+    3,           // Hover 時 3px 邊框
+    0x4CC2FF,    // 邊框: 淺藍色
+    6            // 圓角: 6px
+)
+```
+##範例 6: 無邊框純色塊
+```
+btn.SetColor(
+    0xD13438,    // 背景: 紅色
+    0xFFFFFF,    // 文字: 白色
+    0            // 完全無邊框
+)
+```
+##快速對照表
+```
+// 情境 1: 我只想改背景色
+btn.SetColor(0x0078D4)
+
+// 情境 2: 背景色 + 文字色
+btn.SetColor(0x0078D4, 0xFFFFFF)
+
+// 情境 3: Hover 時要有邊框
+btn.SetColor(0x0078D4, 0xFFFFFF, 2, 0xFF0000)
+
+// 情境 4: 邊框永遠顯示
+btn.SetColor(0x0078D4, 0xFFFFFF, -2, 0xFF0000)
+
+// 情境 5: 不要邊框
+btn.SetColor(0x0078D4, 0xFFFFFF, 0)
+
+// 情境 6: 完全客製化
+btn.SetColor(0x0078D4, 0xFFFFFF, 3, 0xFF0000, 9)
+```
 
 
 ##屬性設定方式
@@ -134,5 +175,7 @@ btn.RoundedCorner := 6
 全局 OnMessage：避免與原始 ColorButton 的 SubClass 機制衝突
 按需重繪：僅在 hover 狀態改變時觸發重繪，不會持續消耗資源
 兼容性：支援 AutoHotkey v2.0+
+
+
 
 
