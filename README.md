@@ -68,7 +68,7 @@ btn.SetColor(bgColor, txColor?, showBorder, borderColor?, roundedCorner?)
 |-1 | 永遠顯示 1px 邊框| 
 |-n < 0   | 永遠顯示 n 像素粗的邊框（絕對值越大越粗） |
 4. ### borderColor?(可選) 邊框顏色 (RGB)  (預設 = 0xFFFFFF, 白色邊框)
-4. ### roundedColor?(可選) 圓角像素值 (預設 = 0xFFFFFF, 白色邊框)
+4. ### roundedColor?(可選) 圓角像素值 
 ```
 btn.SetColor(0x0078D4, , , , 9)     // 9px 圓角
 btn.SetColor(0x0078D4, , , , 0)     // 方形按鈕
