@@ -63,42 +63,7 @@ btn.SetColor(0x0078D4, 0xFFFFFF, 2, 0xFF0000)
 
 MyGui.Show()
 完整應用範例
-ahk#Requires AutoHotkey v2.0
-#SingleInstance Force
-#Include ColorButton_HoverBorder.ahk
 
-; 建立深色主題 GUI
-MyGui := Gui()
-MyGui.SetFont("s10", "Microsoft JhengHei")
-MyGui.BackColor := 0x202020
-
-; Windows 11 深色模式
-DllCall("Dwmapi\DwmSetWindowAttribute", "Ptr", MyGui.hwnd, "UInt", 20, "Ptr*", 1, "UInt", 4)
-
-; 主要功能按鈕 - Hover 時顯示 2px 藍色邊框
-btn1 := MyGui.Add("Button", "x20 y20 w120 h40", "檢驗查詢")
-btn1.SetColor(0x0078D4, 0xFFFFFF, 2, 0x4CC2FF, 6)
-btn1.OnEvent("Click", (*) => MsgBox("檢驗查詢"))
-
-btn2 := MyGui.Add("Button", "x150 y20 w120 h40", "門急診查詢")
-btn2.SetColor(0x0078D4, 0xFFFFFF, 2, 0x4CC2FF, 6)
-btn2.OnEvent("Click", (*) => MsgBox("門急診查詢"))
-
-; 次要功能 - Hover 時顯示 3px 綠色邊框
-btn3 := MyGui.Add("Button", "x20 y70 w120 h40", "開啟 PACS")
-btn3.SetColor(0x107C10, 0xFFFFFF, 3, 0x6FD96F, 6)
-btn3.OnEvent("Click", (*) => MsgBox("開啟 PACS"))
-
-; 永遠顯示邊框的按鈕
-btn4 := MyGui.Add("Button", "x150 y70 w120 h40", "永久邊框")
-btn4.SetColor(0x8B5CF6, 0xFFFFFF, -2, 0xC4B5FD, 6)
-
-; 警告按鈕 - 無邊框純色
-btnCancel := MyGui.Add("Button", "x20 y120 w250 h40", "取消")
-btnCancel.SetColor(0xD13438, 0xFFFFFF, 0, , 6)
-btnCancel.OnEvent("Click", (*) => MyGui.Destroy())
-
-MyGui.Show("w290")
 多種樣式展示
 ahk#Requires AutoHotkey v2.0
 #Include ColorButton_HoverBorder.ahk
