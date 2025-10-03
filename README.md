@@ -43,8 +43,6 @@ Copyright (c) 2024 Nikola Perovic
 
 這個修改版的 ColorButton 支援滑鼠 Hover 時顯示邊框,提供更好的互動體驗。
 
-### 主要特點
-...（後續內容）
 
 ### 主要特點
 - **Hover 即時反饋**：滑鼠移到按鈕上時自動顯示邊框
