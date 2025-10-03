@@ -54,8 +54,14 @@ Copyright (c) 2024 Nikola Perovic
 
 ```ahk
 btn.SetColor(bgColor, txColor?, showBorder, borderColor?, roundedCorner?)
-參數值效果n > 0Hover 或 Focus 時顯示 n 像素粗的邊框1Hover 或 Focus 時顯示 1px 邊框（預設）0完全無邊框-1永遠顯示 1px 邊框-n < 0永遠顯示 n 像素粗的邊框（絕對值越大越粗）
 ```
+參數值   效果
+n > 0   Hover 或 Focus 時顯示 n 像素粗的邊框
+1 Hover 或 Focus 時顯示 1px 邊框（預設）
+0  完全無邊框
+-1永遠顯示 1px 邊框
+-n < 0永遠顯示 n 像素粗的邊框（絕對值越大越粗）
+
 
 ##使用範例
 ##基本用法
