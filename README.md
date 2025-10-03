@@ -28,7 +28,14 @@
 
 ## 授權
 
-本修改版遵循原項目的 MIT 授權條款。
+本專案基於 [ColorButton.ahk](https://github.com/nperovic/ColorButton.ahk) 修改，
+遵循原專案的 MIT License。
+
+### 原專案授權
+MIT License  
+Copyright (c) 2024 Nikola Perovic
+
+（完整授權文字見 LICENSE 文件）
 
 ---
 
