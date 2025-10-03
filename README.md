@@ -62,7 +62,8 @@ btn := MyGui.Add("Button", "x20 y20 w150", "Hover 我看看")
 btn.SetColor(0x0078D4, 0xFFFFFF, 2, 0xFF0000)
 
 MyGui.Show()
-完整應用範例
+
+
 
 多種樣式展示
 ahk#Requires AutoHotkey v2.0
@@ -92,6 +93,10 @@ btn5 := MyGui.Add("Button", "x20 y220 w180 h40", "無邊框")
 btn5.SetColor(0x0078D4, 0xFFFFFF, 0)
 
 MyGui.Show("w220")
+
+
+
+
 屬性設定方式
 除了使用 SetColor() 方法，也可以透過屬性個別設定：
 ahkbtn := MyGui.Add("Button", "w150", "我的按鈕")
@@ -105,6 +110,9 @@ btn.TextColor := 0xFFFFFF
 btn.BorderColor := 0xFF0000
 btn.ShowBorder := 3
 btn.RoundedCorner := 6
+
+
+
 技術說明
 
 事件機制：使用 Windows API TrackMouseEvent 追蹤滑鼠進入/離開
@@ -112,22 +120,4 @@ btn.RoundedCorner := 6
 按需重繪：僅在 hover 狀態改變時觸發重繪，不會持續消耗資源
 兼容性：支援 AutoHotkey v2.0+
 
-注意事項
 
-不要保留調試用的 SetTimer：測試時的 ToolTip 計時器僅供調試，正式使用時必須移除
-完全關閉舊腳本：修改代碼後需完全關閉 AHK 腳本再重新運行
-使用 #SingleInstance Force：確保每次都載入最新版本
-
-
-## 方法 3: 建立 AHK 腳本自動生成
-```ahk
-#Requires AutoHotkey v2.0
-
-mdContent := "
-(
-# ColorButton Hover 邊框功能說明
-... (你的內容)
-)"
-
-FileAppend mdContent, "ColorButton_README.md", "UTF-8"
-MsgBox "已生成 ColorButton_README.md"
